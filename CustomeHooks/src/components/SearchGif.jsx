@@ -5,10 +5,11 @@ import Spinner from "./Spinner.jsx";
 
 // import process from "react"
 import axios from "axios";
-export default function RandomGif() {
+export default function SearchGif() {
+    const [tag ,setTag]=useState("")
     const [gif, setGif] = useState("")
     const API_KEY = "TaTcBjzO6tlilymle2PiVMIBemAWIqYg"
-    const URL = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
+    const URL =`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${tag}`;
 
     const [loading,setLoading] = useState(false)
 
@@ -46,12 +47,18 @@ export default function RandomGif() {
         fetchData()        
     }
 
+    function changeHandler(event){
+        setTag(event.target.value)
+        console.log(tag)
+
+    }
+
  
 
     return (
         <>
             <div className="top-randomGif">
-                <h1>Random Gif</h1>
+                <h1>Random {tag}</h1>
 
                 {  
               // if the loading is true then we show spinner else show image or gif 
@@ -60,10 +67,14 @@ export default function RandomGif() {
                     
                 }
 
-
-
                 
+                <input 
+                
+                className="input"
+                onChange={changeHandler}
+                value={tag}
 
+                />
                 <button onClick={clickHandler} className="gif-generator">Generate Gif</button>
             </div>
         </>
