@@ -1,5 +1,6 @@
+// impoting randomGif .jsx
+import RandomGif from "./components/RendomGif"
 // importing css 
-
 import "./App.css"
 function App() {
   
@@ -10,7 +11,11 @@ function App() {
       <h1>Rendome Gif</h1>
     </div>
 
-    <div className="gif-box">
+    <div>
+      <RandomGif/>
+    </div>
+
+    {/* <div className="gif-box">
 
       <div className="gif-first">
 
@@ -19,7 +24,7 @@ function App() {
       <div className="git-second">
 
       </div>
-    </div>
+    </div> */}
    </div>
      
     
