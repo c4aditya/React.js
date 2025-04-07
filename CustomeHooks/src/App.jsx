@@ -1,5 +1,6 @@
 // impoting randomGif .jsx
-import RandomGif from "./components/RendomGif"
+import RandomGif from "./components/RendomGif";
+import SearchGif from "./components/SearchGif";
 // importing css 
 import "./App.css"
 function App() {
@@ -13,6 +14,10 @@ function App() {
 
     <div>
       <RandomGif/>
+    </div>
+
+    <div>
+      <SearchGif/>
     </div>
 
    </div>
