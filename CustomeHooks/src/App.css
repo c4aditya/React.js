@@ -21,7 +21,7 @@
 
 .top-randomGif{
     border: 2px solid red;
-    background-color: rgb(63, 202, 63);
+    background-color: rgb(63, 202, 63);  
     display: flex;
     gap: 20px;
     flex-direction: column;
@@ -29,3 +29,34 @@
     align-items: center;
     margin:3% auto;
 }
+
+
+/* spinner */
+.spinner {
+    width: 56px;
+    height: 56px;
+    display: grid;
+    animation: spinner-plncf9 4s infinite;
+ }
+ 
+ .spinner::before,
+ .spinner::after {
+    content: "";
+    grid-area: 1/1;
+    border: 9px solid;
+    border-radius: 50%;
+    border-color: #474bff #474bff #0000 #0000;
+    mix-blend-mode: darken;
+    animation: spinner-plncf9 1s infinite linear;
+ }
+ 
+ .spinner::after {
+    border-color: #0000 #0000 #dbdcef #dbdcef;
+    animation-direction: reverse;
+ }
+ 
+ @keyframes spinner-plncf9 {
+    100% {
+       transform: rotate(1turn);
+    }
+ }

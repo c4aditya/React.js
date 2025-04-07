@@ -15,16 +15,6 @@ function App() {
       <RandomGif/>
     </div>
 
-    {/* <div className="gif-box">
-
-      <div className="gif-first">
-
-      </div>
-
-      <div className="git-second">
-
-      </div>
-    </div> */}
    </div>
      
     
