@@ -5,7 +5,7 @@ const Rendom_gif_url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`
 // search gif 
 const Search_gif_url =`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${tag}`;
  
-import Spinner from "./Spinner.jsx";
+// import Spinner from "../components/Spinner.jsx";
 
 // we have to create a two URL first ome is for randomgif.jsx and second one for Searchgif
 // random gif
@@ -24,16 +24,14 @@ export default function Usegif(tag) {
 
     // async function beacuse i have to call the API 
 
-    async function fetchData() {
+    async function fetchData(tag) {
         // api fetch 
 
         try {
             // yhaa pe hume ye krna hai ki kon sha url use hoo rha hai ex- searchGif vala ya RandomGif wala to usse ke hishb se gif show hoga to ise hum ptaa krnge tag se 
             // agr tag pass hua hai to tag vala urlkaam krega agr tag vala run nhi hoga to random wala url run hoga 
-
-            const data = await axios(tag ? Search_gif_url : Rendom_gif_url)         
-            
-
+            setLoading(true)
+            const data = await axios(tag ? Search_gif_url : Rendom_gif_url)   
             // const { data } = await axios.get(URL)
             console.log(data)
             // getting image
@@ -53,6 +51,8 @@ export default function Usegif(tag) {
     useEffect(() => {
         fetchData()
     }, [])
+
+    return{gif , loading , fetchData};
 
     // function clickHandler() {
     //     console.log("The Genarate button is clicked ")

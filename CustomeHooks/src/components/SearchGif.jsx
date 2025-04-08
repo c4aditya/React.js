@@ -4,8 +4,8 @@ import {useState } from "react"
 import Spinner from "./Spinner.jsx";
 
 // import process from "react"
-import axios from "axios";
-export default function SearchGif(tag) {
+// import axios from "axios";
+export default function SearchGif() {
     const [tag ,setTag]=useState("")
     // const [gif, setGif] = useState("")
     // const API_KEY = "TaTcBjzO6tlilymle2PiVMIBemAWIqYg"

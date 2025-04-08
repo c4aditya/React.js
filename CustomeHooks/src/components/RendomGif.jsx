@@ -6,7 +6,7 @@ import Spinner from "./Spinner.jsx";
 // import process from "react"
 // import axios from "axios";
 
-import Usegif from "../Hooks/Usegif.jsx";
+import {Usegif} from "../Hooks/Usegif.jsx";
 export default function RandomGif() {
     // const [gif, setGif] = useState("")
     // const API_KEY = "TaTcBjzO6tlilymle2PiVMIBemAWIqYg"
@@ -42,11 +42,11 @@ export default function RandomGif() {
     // useEffect(() => {
     //     fetchData()
     // }, [])
-    const {gif,loading,fetchData} from Usegif();
+    const {gif,loading,fetchData} = Usegif();
 
     function clickHandler() {
         console.log("The Genarate button is clicked ")
-        fetchData()        
+        // fetchData()        
     }
 
  
