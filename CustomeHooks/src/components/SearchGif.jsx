@@ -2,11 +2,13 @@ import {useState } from "react"
 //importing spinner 
 
 import Spinner from "./Spinner.jsx";
+import Usegif from "../Hooks/Usegif.jsx";
 
 // import process from "react"
 // import axios from "axios";
 export default function SearchGif() {
     const [tag ,setTag]=useState("")
+    const {gif,loading,fetchData} =Usegif(tag);
     // const [gif, setGif] = useState("")
     // const API_KEY = "TaTcBjzO6tlilymle2PiVMIBemAWIqYg"
     // const URL =`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${tag}`;
@@ -42,10 +44,10 @@ export default function SearchGif() {
     //     fetchData()
     // }, [])
 
-     const {gif,loading,fetchData} = Usegif();
+    
 
     function clickHandler() {
-        console.log("The Genarate button is clicked ")
+        console.log("The Genarate button is clicked")
         fetchData()        
     }
 

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 //importing spinner 
-const Rendom_gif_url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
+
 
 // search gif 
-const Search_gif_url =`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${tag}`;
+// const Search_gif_url =`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${tag}`;
  
 // import Spinner from "../components/Spinner.jsx";
 
@@ -13,31 +13,37 @@ const Search_gif_url =`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&t
 
 // import process from "react"
 import axios from "axios";
+// ye tag ko as a parameter le rha hai kyo ki isme serchGif vlae cmponent me tag as a inputfeild hai
 export default function Usegif(tag) {
     // const [tag ,setTag]=useState("")
     const [gif, setGif] = useState("")
     const API_KEY = "TaTcBjzO6tlilymle2PiVMIBemAWIqYg"
+    const Rendom_gif_url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
+    const Search_gif_url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${tag}`
+    const URL = tag ?  Search_gif_url: Rendom_gif_url ;
 
-
-    const [loading,setLoading] = useState(false)
+    const [loading,setLoading] = useState(true)
 
 
     // async function beacuse i have to call the API 
 
-    async function fetchData(tag) {
+    async function fetchData() {
         // api fetch 
+
+      
 
         try {
             // yhaa pe hume ye krna hai ki kon sha url use hoo rha hai ex- searchGif vala ya RandomGif wala to usse ke hishb se gif show hoga to ise hum ptaa krnge tag se 
             // agr tag pass hua hai to tag vala urlkaam krega agr tag vala run nhi hoga to random wala url run hoga 
             setLoading(true)
-            const data = await axios(tag ? Search_gif_url : Rendom_gif_url)   
+            const data = await axios(URL)   
             // const { data } = await axios.get(URL)
             console.log(data)
             // getting image
-            const Image_source = data.data.images.downsized_large.url
+            const Image_source = data.data.data.images.downsized_large.url;
             console.log(Image_source)
-            setGif(Image_source)
+             setGif(Image_source)
+             setLoading(false)
 
         }
         // if getting an error while fetching the api 
@@ -52,7 +58,7 @@ export default function Usegif(tag) {
         fetchData()
     }, [])
 
-    return{gif , loading , fetchData};
+    return{gif, loading , fetchData};
 
     // function clickHandler() {
     //     console.log("The Genarate button is clicked ")
